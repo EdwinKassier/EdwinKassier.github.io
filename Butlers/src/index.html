@@ -1,0 +1,493 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+  <!-- Fontawesome (icons) -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+  <!-- Main CSS file -->
+  <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+<!-- Navigation bar -->
+<nav class="navbar  navbar-inverse " style="background-color: #E2152F">
+  <a class="navbar-brand" href="#">
+    <h5 style="color: #FED201"><img src="logo.jpg" alt="" style="height: 40px; width: 40px; padding: 0"> Butlers Pizza
+    </h5>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+          style="border: transparent; color: #FED201">Help
+    <span><i class="fas fa-bars fa-1x"></i></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="color: white">Contact branch</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Navigation bar -->
+
+<div class="container"><br>
+
+  <!-- Home page map -->
+  <div class="card text-center" style="background-color:#EDEDED;">
+    <div class="card-body">
+      <iframe
+        src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <a href="https://goo.gl/maps/drPW7JdCdy62">
+      </a>
+    </div>
+  </div>
+  <!-- Home page map -->
+
+  <br>
+
+  <!-- Arrival time card -->
+  <div class="card text-center" style="background-color:#EDEDED;">
+    <div class="card-body">
+      <h3 class="card-title text-muted">Estimated arrival time</h3>
+      <h2 class="card-text">11:23 PM</h2>
+    </div>
+    <hr>
+    <div class="card-body">
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapse1" class="card-title text-muted"
+                 style="text-decoration: none !important" aria-expanded="true" aria-controls="collapse-example"
+                 onclick="$('#collapsed-chevron').toggleClass('fa-rotate-180')">
+                Order status <i class="fa fa-chevron-down pull-right" id="collapsed-chevron"></i>
+              </a>
+            </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse">
+            <div class="panel-body">
+              <br>
+              <i class="fas fa-pizza-slice" style="font-size:64px;"></i>
+              <br>
+              <br>
+              <h3 class="card-text text-muted">In the kitchen </h3></div>
+            <hr>
+            <div class="panel-footer">Last updated x minutes ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Arrival time card -->
+
+  <br>
+
+  <!-- Payment/Order card -->
+  <div class="card text-center" style="background-color:#EDEDED;">
+    <div class="card-body">
+      <h3 class="card-title text-muted">Order summary</h3>
+      <br>
+      <table class="table table-sm table-borderless">
+        <tbody>
+
+        <!-- Invoice item template
+          <tr>
+          <th scope="row">number of item</th>
+          <td>Item name</td>
+          <td>price</td>
+           </tr>
+        -->
+
+        <tr>
+          <th scope="row">1X</th>
+          <td>Item name</td>
+          <td>RXX</td>
+        </tr>
+        <tr>
+          <th scope="row">1X</th>
+          <td>Item name</td>
+          <td>RXX</td>
+        </tr>
+        <tr>
+          <th scope="row">Delivery fee</th>
+          <td></td>
+          <td>FREE</td>
+        </tr>
+        <tr>
+          <th scope="row">Payment:TYPE</th>
+          <td></td>
+          <td>Total:RXX</td>
+        </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-default" style="" onclick="this.blur();" data-toggle="modal"
+              data-target="#paymentModal">
+        Change payment type
+      </button>
+    </div>
+
+  </div>
+  <!-- Payment/Order  card -->
+
+  <!-- Payment Modal/Popup -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="PaymentModalLongTitle"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="PaymentModalLongTitle">Choose Payment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-sm table-borderless">
+            <tbody>
+
+            <!-- Invoice item template
+         <tr>
+         <th scope="row">number of item</th>
+         <td>Item name</td>
+         <td>price</td>
+          </tr>
+            -->
+
+            <tr>
+              <th scope="row">1x</th>
+              <td>Item name</td>
+              <td>RXX</td>
+            </tr>
+            <tr>
+              <th scope="row">1x</th>
+              <td>Item name</td>
+              <td>RXX</td>
+            </tr>
+            <tr>
+              <th scope="row">Delivery fee</th>
+              <td></td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td>Total:RXX</td>
+            </tr>
+            </tbody>
+          </table>
+          <hr>
+          <h5 class="text-muted text-center">Payment options</h5>
+          <br>
+          <form action="">
+            <div class="text-center">
+              <div class="btn-group ">
+
+                <button type="submit" class="btn btn-default " value="Cash"
+                        style="height: 65px; width: 130px;"><i class="fa fa-money-bill-alt"
+                                                               style="font-size: 48px; color: #22BD57"></i><br><h5>
+                  Cash </h5>
+                </button>
+
+                <button type="submit" class="btn btn-default " value="Snapscan"
+                        style="height: 65px; width: 130px;"><img src="snapscan.png" alt=""
+                                                                 style="height: 65px; width: 130px;">
+                </button>
+
+              </div>
+            </div>
+          </form>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Payment Modal/Popup -->
+
+  <br>
+
+  <!-- Driver card -->
+  <div class="card text-center" style="background-color:#EDEDED;">
+    <div class="card-body">
+      <h3 class="card-title text-muted">Your Butler</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"
+            alt="" class="img-rounded">
+        </div>
+        <div class="col-md-6">
+          <br>
+          <h5>Butler name</h5>
+          <h5>Butler numberplate</h5>
+          <p>
+            "Butler name is completing their xth delivery"
+          </p>
+
+          <!-- Telephone template <a href="tel:BUTLER NUMBER" class="btn btn-success" role="button">Call Butler</a> -->
+
+          <a href="tel:+1-303-499-7111" class="btn btn-lg" style="color:#FED201; background-color: #E2152F"
+             role="button">Call
+            Butler <i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Driver card -->
+
+  <br>
+
+  <!-- Ratings card -->
+  <div class="card text-center" style="background-color:#EDEDED;">
+    <div class="card-body">
+      <h3 class="card-title text-muted">Rate us!</h3>
+      <br>
+      <!-- Link the script used to receive data here -->
+      <form action="">
+        <!-- Ratings-Driver -->
+        <div class="form-group">
+          <label for="driver_rating"><h5>Rate your Butler</h5></label>
+          <input type="hidden" class="form-control" id="driver_rating" value="" name="driver_rating">
+          <br>
+          <button type="button" class="btn-d btn btn-default " d-data-attr="1" id="driver-star-1">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-d btn btn-default " d-data-attr="2" id="driver-star-2">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-d btn btn-default " d-data-attr="3" id="driver-star-3">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-d btn btn-default " d-data-attr="4" id="driver-star-4">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-d btn btn-default" d-data-attr="5" id="driver-star-5">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+        </div>
+        <!-- Ratings-Driver -->
+
+        <br>
+
+        <!-- Ratings-order -->
+        <div class="form-group">
+          <label for="driver_rating"><h5>Rate your ordering experience</h5></label>
+          <input type="hidden" id="order_rating" name="order_rating" value="" required="required">
+          <br>
+          <button type="button" class="btn-o btn btn-default" o-data-attr="1" id="order-star-1">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-o btn btn-default " o-data-attr="2" id="order-star-2">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-o btn btn-default " o-data-attr="3" id="order-star-3">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-o btn btn-default " o-data-attr="4" id="order-star-4">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-o btn btn-default " o-data-attr="5" id="order-star-5">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+        </div>
+        <!-- Ratings-order -->
+
+        <br>
+
+        <!-- Ratings-Pizza -->
+        <div class="form-group">
+
+          <label for="driver_rating"><h5>Rate your pizza</h5></label>
+          <input type="hidden" id="pizza_rating" name="pizza_rating" value="" required="required">
+          <br>
+          <button type="button" class="btn-p btn btn-default " p-data-attr="1" id="pizza-star-1">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-p btn btn-default " p-data-attr="2" id="pizza-star-2">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-p btn btn-default " p-data-attr="3" id="pizza-star-3">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-p btn btn-default " p-data-attr="4" id="pizza-star-4">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn-p btn btn-default" p-data-attr="5" id="pizza-star-5">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </button>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-lg " data-toggle="modal"
+                data-target="#RatingsModal" style="color:#FED201; background-color: #E2152F">Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- Ratings-Pizza -->
+
+  <!-- Thank for rating us Modal/Popup -->
+  <div class="modal fade" id="RatingsModal" tabindex="-1" role="dialog" aria-labelledby="RatingsModalLongTitle"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <br>
+          <div class="text-center">
+            <img src="logo.jpg" alt="" style="height: 100px; width: 100px; padding-bottom: 8px">
+          </div>
+          <div class="text-center">
+            <h4>Thank you for your feedback!</h4>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Thank for rating us Modal/Popup -->
+
+</div>
+
+<br>
+
+<!-- Footer -->
+<div class="footer-margin-border" style="background-color: #FED201;">
+  <footer class="card-footer footer-position">
+  </footer>
+</div>
+<div class="footer-margin" style="background-color: #E2152F;">
+  <footer class="card-footer text-center  footer-position">
+    <img src="logo.jpg" alt="" style="height: 50px; width: 50px; padding-bottom: 8px">
+    <div class="container">
+      <div class="text-center center-block">
+        <a href="#https://www.facebook.com/butlerspizza/"><i class="fab fa-facebook-square"
+                                                             style="color: white;font-size: 28px; padding-right: 5px"></i>
+        </a>
+        <a href="#https://www.instagram.com/butlerspizzasa/?hl=en"><i class="fab fa-instagram"
+                                                                      style="color: white;font-size: 28px; padding-right: 5px"></i>
+        </a>
+        <a href="#https://twitter.com/butlerspizzasa?lang=en"><i class="fab fa-twitter-square"
+                                                                 style="color: white;font-size: 28px"></i> </a>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- Footer -->
+
+
+</body>
+
+
+<!-- Butler rating script -->
+<script>
+  jQuery(document).ready(function ($) {
+
+    $(".btn-d").on('click', (function (e) {
+
+      var previous_value = $("#driver_rating").val();
+
+      var selected_value = $(this).attr("d-data-attr");
+      $("#driver_rating").val(selected_value);
+
+      $(".driver-rating").empty();
+      $(".driver-rating").html(selected_value);
+
+      for (i = 1; i <= selected_value; ++i) {
+        $("#driver-star-" + i).toggleClass('btn-warning');
+        $("#driver-star-" + i).toggleClass('btn-default');
+      }
+
+      for (ix = 1; ix <= previous_value; ++ix) {
+        $("#driver-star-" + ix).toggleClass('btn-warning');
+        $("#driver-star-" + ix).toggleClass('btn-default');
+      }
+
+    }));
+
+
+  });
+</script>
+<!-- Butler rating script -->
+
+<!-- Order rating script -->
+<script>
+  jQuery(document).ready(function ($) {
+
+    $(".btn-o").on('click', (function (e) {
+
+      var previous_value = $("#order_rating").val();
+
+      var selected_value = $(this).attr("o-data-attr");
+      $("#order_rating").val(selected_value);
+
+      $(".order-rating").empty();
+      $(".order-rating").html(selected_value);
+
+      for (i = 1; i <= selected_value; ++i) {
+        $("#order-star-" + i).toggleClass('btn-warning');
+        $("#order-star-" + i).toggleClass('btn-default');
+      }
+
+      for (ix = 1; ix <= previous_value; ++ix) {
+        $("#order-star-" + ix).toggleClass('btn-warning');
+        $("#order-star-" + ix).toggleClass('btn-default');
+      }
+
+    }));
+
+
+  });
+</script>
+<!-- Order rating script -->
+
+<!-- Pizza rating script -->
+<script>
+  jQuery(document).ready(function ($) {
+
+    $(".btn-p").on('click', (function (e) {
+
+      var previous_value = $("#pizza_rating").val();
+
+      var selected_value = $(this).attr("p-data-attr");
+      $("#pizza_rating").val(selected_value);
+
+      $(".pizza-rating").empty();
+      $(".pizza-rating").html(selected_value);
+
+      for (i = 1; i <= selected_value; ++i) {
+        $("#pizza-star-" + i).toggleClass('btn-warning');
+        $("#pizza-star-" + i).toggleClass('btn-default');
+      }
+
+      for (ix = 1; ix <= previous_value; ++ix) {
+        $("#pizza-star-" + ix).toggleClass('btn-warning');
+        $("#pizza-star-" + ix).toggleClass('btn-default');
+      }
+
+    }));
+
+
+  });
+</script>
+<!-- Pizza rating script -->
+
+
+</html>
