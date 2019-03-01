@@ -38,7 +38,10 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white">Contact branch</a>
+        <a class="nav-link" href="#" style="color: white">Call branch</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="color: white">Chat with customer care</a>
       </li>
     </ul>
   </div>
@@ -47,14 +50,106 @@
 
 <div class="container"><br>
 
+
+  <!-- Initial payment popup -->
+  <div class="modal fade" id="InitialPaymentModal" tabindex="-1" role="dialog" aria-labelledby="PaymentModalLongTitle"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="InitialPaymentTitle">Choose Payment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-sm table-borderless">
+            <tbody>
+
+            <!-- Invoice item template
+         <tr>
+         <th scope="row">number of item</th>
+         <td>Item name</td>
+         <td>price</td>
+          </tr>
+            -->
+
+            <tr>
+              <th scope="row">1x</th>
+              <td>Item name</td>
+              <td>RXX</td>
+            </tr>
+            <tr>
+              <th scope="row">1x</th>
+              <td>Item name</td>
+              <td>RXX</td>
+            </tr>
+            <tr>
+              <th scope="row">Delivery fee</th>
+              <td></td>
+              <td>FREE</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td>Total:RXX</td>
+            </tr>
+            </tbody>
+          </table>
+          <hr>
+          <h5 class="text-muted text-center">Payment options</h5>
+          <br>
+          <form id="InitialPaymentForm" action="">
+            <div class="text-center">
+
+              <label>
+                <i class="fa fa-money-bill-alt"
+                   style="font-size: 48px;color: #22BD57; filter: grayscale(100%);" id="InitialCash"></i>
+                <input type="radio" name="test" value="Cash" style="display: none" onclick="ChangeFilterCash()" checked>
+              </label>
+
+              <label>
+                <img src="snapscan.png" alt="" id="InitialSnap" "
+                     style="height: 65px; width: 130px; filter: grayscale(100%);">
+                <input type="radio" name="test" value="SnapScan" style="display: none" onclick="ChangeFilterSnap()" checked>
+
+              </label>
+              <br>
+              <br>
+              <div class="form-group">
+                <label for="exampleInputEmail1"><h5 class="text-muted text-center">Enter email</h5></label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                       placeholder="Enter email" disabled>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.
+                </small>
+              </div>
+              <div class="form-check">
+                <label class="checkbox span3">Want an emailed invoice? <input type="checkbox" id="emailCheck"/>
+                </label>
+              </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+          </form>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#InitialPaymentModal">Launch
+      Initial payment popup</a>
+  </div>
+
+  <!-- Initial payment popup -->
+
+
   <!-- Home page map -->
   <div class="card text-center" style="background-color:#EDEDED;">
     <div class="card-body">
-      <iframe
-        src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
-      <a href="https://goo.gl/maps/drPW7JdCdy62">
-      </a>
+      <iframe src="http://maps.google.com/maps?q=35.856737, 10.606619&z=15&output=embed " width="100%" height="250"
+              frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
   </div>
   <!-- Home page map -->
@@ -73,14 +168,14 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" href="#collapse1" class="card-title text-muted"
+              <a data-toggle="collapse" href="#collapse1" class="card-title text-muted "
                  style="text-decoration: none !important" aria-expanded="true" aria-controls="collapse-example"
                  onclick="$('#collapsed-chevron').toggleClass('fa-rotate-180')">
-                Order status <i class="fa fa-chevron-down pull-right" id="collapsed-chevron"></i>
+                Order status <i class="fa fa-chevron-up pull-right" id="collapsed-chevron"></i>
               </a>
             </h4>
           </div>
-          <div id="collapse1" class="panel-collapse collapse">
+          <div id="collapse1" class="panel-collapse show">
             <div class="panel-body">
               <br>
               <i class="fas fa-pizza-slice" style="font-size:64px;"></i>
@@ -193,7 +288,7 @@
           <hr>
           <h5 class="text-muted text-center">Payment options</h5>
           <br>
-          <form action="">
+          <form id="PaymentOptionForm" action="">
             <div class="text-center">
               <div class="btn-group ">
 
@@ -207,7 +302,7 @@
                         style="height: 65px; width: 130px;"><img src="snapscan.png" alt=""
                                                                  style="height: 65px; width: 130px;">
                 </button>
-
+                <br>
               </div>
             </div>
           </form>
@@ -217,6 +312,31 @@
     </div>
   </div>
   <!-- Payment Modal/Popup -->
+
+  <!-- payment change confirmed Modal/Popup -->
+  <div class="modal fade" id="SnapScanModal" tabindex="-1" role="dialog" aria-labelledby="RatingsModalLongTitle"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <br>
+          <div class="text-center">
+            <img src="logo.jpg" alt="" style="height: 100px; width: 100px; padding-bottom: 8px">
+          </div>
+          <div class="text-center">
+            <h4>Your payment method has been updated</h4>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- payment change confirmed Modal/Popup -->
 
   <br>
 
@@ -332,7 +452,7 @@
         </div>
         <br>
         <button type="submit" class="btn btn-lg " data-toggle="modal"
-                data-target="#RatingsModal" style="color:#FED201; background-color: #E2152F">Submit
+                data-target="#RatingsModal" style="color:#FED201; background-color: #E2152F" formmethod="post">Submit
         </button>
       </form>
     </div>
@@ -395,8 +515,57 @@
 
 </body>
 
+<!-- Enable/Disable email input box-->
+<script>
+  $("#emailCheck").click(function () {
+    $("#exampleInputEmail1").attr('disabled', !this.checked);
+    if (textInput.hasAttribute('required') !== true) {
+      $("#exampleInputEmail1").setAttribute('required', 'required');
+    }
+    else {
+      $("#exampleInputEmail1").removeAttribute('required');
+    }
+  });
+</script>
+<!-- Enable/Disable email input box-->
 
-<!-- Butler rating script -->
+<!-- Payment option filters-->
+<script>
+  function ChangeFilterSnap(event) {
+    var Snap = document.getElementById("InitialSnap");
+    var Cash = document.getElementById("InitialCash");
+    Snap.style.WebkitFilter = "grayscale(0%)";
+    Cash.style.WebkitFilter = "grayscale(100%)";
+  }
+</script>
+
+<script>
+  function ChangeFilterCash(event) {
+    var Snap = document.getElementById("InitialSnap");
+    var Cash = document.getElementById("InitialCash");
+    Snap.style.WebkitFilter = "grayscale(100%)";
+    Cash.style.WebkitFilter = "grayscale(0%)";
+  }
+</script>
+
+<!-- Payment option filters-->
+
+
+<!-- Map setup -->
+<script>
+  function initMap() {
+// The location of customer (lat and long coordinates)
+    var customer = {lat: -25.344, lng: 131.036};
+// The map, centered at customer location
+    var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: customer});
+// The marker, positioned at customer location
+    var marker = new google.maps.Marker({position: customer, map: map});
+  }
+</script>
+<!-- Map setup -->
+
+<!-- Butler star rating script -->
 <script>
   jQuery(document).ready(function ($) {
 
@@ -425,9 +594,9 @@
 
   });
 </script>
-<!-- Butler rating script -->
+<!-- Butler star rating script -->
 
-<!-- Order rating script -->
+<!-- Order star rating script -->
 <script>
   jQuery(document).ready(function ($) {
 
@@ -456,9 +625,9 @@
 
   });
 </script>
-<!-- Order rating script -->
+<!-- Order star rating script -->
 
-<!-- Pizza rating script -->
+<!-- Pizza star rating script -->
 <script>
   jQuery(document).ready(function ($) {
 
@@ -487,7 +656,15 @@
 
   });
 </script>
-<!-- Pizza rating script -->
+<!-- Pizza star rating script -->
+
+<!-- Payment method change modal switch -->
+<script>
+  $('#PaymentOptionForm').on('submit', function (e) {
+    $('#paymentModal').modal('toggle');
+  });
+</script>
+<!-- Payment method change modal switch -->
 
 
 </html>
