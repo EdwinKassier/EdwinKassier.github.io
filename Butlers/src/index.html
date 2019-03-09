@@ -30,24 +30,24 @@
 <!-- Navigation bar -->
 <nav class="navbar  navbar-inverse " style="background-color: #E2152F;">
   <a class="navbar-brand" href="#">
-    <h5 style="color: white; font-size: large"><img src="logo.jpg" alt="" style="height: 40px; width: 40px; padding: 0">
+    <h5 style="color: white; font-size: medium"><img src="logo.jpg" alt="" style="height: 40px; width: 40px; padding: 0">
       BUTLER'S <span style="color: #FED201">PIZZA!</span>
     </h5>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
-          style="border: transparent; color: #FED201">Help
-    <span><i class="fas fa-bars fa-1x"></i></span>
+          style="border: transparent; color: #FED201">Contact
+     <span><i class="fas fa-bars fa-1x"></i></span>
   </button>
 
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item" style="position: relative; right: 0">
         <!-- Call branch template <a href="tel:+27834499007" style="color: white">Call branch</a> -->
-        <a href="#" style="color: white">Call branch</a>
+        <a class="nav-link" href="#" style="color: white; float: right">Call branch</a>
       </li>
       <li class="nav-item">
         <!-- Telegram bot here i assume? -->
-        <a class="nav-link" href="#" style="color: white">Chat with customer care</a>
+        <a class="nav-link" href="#" style="color: white; float: right">Chat with customer care</a>
       </li>
     </ul>
   </div>
@@ -59,20 +59,22 @@
 
   <!-- Initial payment popup -->
   <div class="modal fade" id="InitialPaymentModal" tabindex="-1" role="dialog" aria-labelledby="PaymentModalLongTitle"
-       aria-hidden="true">
+       aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="InitialPaymentTitle">Choose Payment</h5>
+          <!--
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+          -->
         </div>
         <div class="modal-body">
           <table class="table table-sm table-borderless">
             <tbody>
 
-            <!-- Invoice item template
+            <!-- Invoice item template - not to be used for delivery fee/total amount/payment type section
          <tr>
          <th scope="row">number of item</th>
          <td>Item name</td>
@@ -91,14 +93,14 @@
               <td>RXX</td>
             </tr>
             <tr>
-              <th scope="row">Delivery fee</th>
+              <th scope="row">Delivery</th>
               <td></td>
               <td>FREE</td>
             </tr>
             <tr>
-              <th scope="row"></th>
+              <th scope="row">Total</th>
               <td></td>
-              <td>Total:RXX</td>
+              <td>Rxxx.xx</td>
             </tr>
             </tbody>
           </table>
@@ -112,21 +114,21 @@
                 <i class="fa fa-money-bill-alt"
                    style="font-size: 48px;color: #22BD57; filter: grayscale(100%);" id="InitialCash"></i>
                 <input type="radio" name="Cash_option" value="Cash" style="display: none" onclick="ChangeFilterCash()"
-                       checked>
+                       >
               </label>
 
               <label>
                 <img src="snapscan.png" alt="" id="InitialSnap"
                      style="height: 65px; width: 130px; filter: grayscale(100%);">
                 <input type="radio" name="Snap_option" value="SnapScan" style="display: none"
-                       onclick="ChangeFilterSnap()" checked>
+                       onclick="ChangeFilterSnap()" >
 
               </label>
               <br>
               <br>
               <div class="form-group">
-                <label for="exampleInputEmail1"><h5 class="text-muted text-center">Enter email</h5></label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                <label for="InputEmail1"><h5 class="text-muted text-center">Enter email</h5></label>
+                <input type="email" name="email" class="form-control" id="InputEmail1"
                        aria-describedby="emailHelp"
                        placeholder="Enter email" autocomplete="on" disabled>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.
@@ -150,12 +152,13 @@
 
   <!-- Initial payment popup -->
 
-  <!--Button to manually launch initial payment popup
+  <!--
   <div class="text-center">
     <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#InitialPaymentModal">Launch
       Initial payment popup</a>
   </div>
   -->
+
 
   <!-- Home page map -->
   <div class="card text-center" style="background-color:#EDEDED;">
@@ -196,10 +199,10 @@
               <!-- Arriving icon - <i class="fas fa-home" style="font-size:64px;"></i> -->
 
               <!-- Template -
-              <i class="fas fa-pizza-slice" style="font-size:64px;"></i>
+              Icon goes here
               <br>
               <br>
-              <h3 class="card-text text-muted">In the kitchen </h3></div>
+              <h3 class="card-text text-muted">Status in words</h3></div>
             <hr>
             <div class="panel-footer">Last updated x minutes ago</div> -->
 
@@ -223,10 +226,10 @@
     <div class="card-body">
       <h3 class="card-title text-muted">Order summary</h3>
       <br>
-      <table class="table table-sm table-borderless">
+      <table class=" table table-sm table-borderless">
         <tbody>
 
-        <!-- Invoice item template
+        <!-- Invoice item template - not to be used for delivery fee/total amount/payment type section
           <tr>
           <th scope="row">number of item</th>
           <td>Item name</td>
@@ -236,7 +239,7 @@
 
         <tr>
           <th scope="row">1X</th>
-          <td>Item name</td>
+          <td>Large pepporoni pizza w/extra cheese</td>
           <td>RXX</td>
         </tr>
         <tr>
@@ -245,14 +248,17 @@
           <td>RXX</td>
         </tr>
         <tr>
-          <th scope="row">Delivery fee</th>
+          <th scope="row">Delivery</th>
           <td></td>
           <td>FREE</td>
         </tr>
         <tr>
-          <th scope="row">Payment:TYPE</th>
+          <th scope="row">Total</th>
           <td></td>
-          <td>Total:RXX</td>
+          <td>Rxxx.xx</td>
+        </tr>
+        <tr>
+          <th scope="row" colspan="3">Payment:Type</th>
         </tr>
         </tbody>
       </table>
@@ -280,7 +286,7 @@
           <table class="table table-sm table-borderless">
             <tbody>
 
-            <!-- Invoice item template
+            <!-- Invoice item template - not to be used for delivery fee/total amount/payment type section
          <tr>
          <th scope="row">number of item</th>
          <td>Item name</td>
@@ -299,14 +305,14 @@
               <td>RXX</td>
             </tr>
             <tr>
-              <th scope="row">Delivery fee</th>
+              <th scope="row">Delivery</th>
               <td></td>
               <td>FREE</td>
             </tr>
             <tr>
-              <th scope="row"></th>
+              <th scope="row">Total</th>
               <td></td>
-              <td>Total:RXX</td>
+              <td>Rxxx.xx</td>
             </tr>
             </tbody>
           </table>
@@ -332,6 +338,8 @@
             </div>
           </form>
           <br>
+          <br>
+          <hr>
         </div>
       </div>
     </div>
@@ -372,10 +380,16 @@
       <img class="card-img"
            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"
            alt="">
-      <div class="row">
-        <div class="col-md-6">
+
           <br>
-          <!-- Script here for Butler details -->
+      <hr>
+          <!-- Script here for Butler details using template
+           <h5>Butler name</h5>
+          <h5>Butler numberplate</h5>
+          <p>
+            "Butler name is completing their xth delivery"
+          </p>
+          -->
           <h5>Butler name</h5>
           <h5>Butler numberplate</h5>
           <p>
@@ -392,8 +406,6 @@
              role="button">Message <i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
-    </div>
-  </div>
   <!-- Driver card -->
 
   <br>
@@ -542,15 +554,17 @@
 
 </body>
 
+
+
 <!-- Enable/Disable email input box-->
 <script>
   $("#emailCheck").click(function () {
-    $("#exampleInputEmail1").attr('disabled', !this.checked);
-    if (textInput.hasAttribute('required') !== true) {
-      $("#exampleInputEmail1").setAttribute('required', 'required');
+    $("#InputEmail1").attr('disabled', !this.checked);
+    if (InputEmail1.hasAttribute('required') == false) {
+      $("#InputEmail1").setAttribute('required', 'required');
     }
     else {
-      $("#exampleInputEmail1").removeAttribute('required');
+      $("#InputEmail1").removeAttribute('required');
     }
   });
 </script>
