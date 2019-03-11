@@ -30,12 +30,12 @@
 <!-- Navigation bar -->
 <nav class="navbar  navbar-inverse " style="background-color: #E2152F;">
   <a class="navbar-brand" href="#">
-    <h5 style="color: white; font-size: medium"><img src="logo.jpg" alt="" style="height: 40px; width: 40px; padding: 0">
+    <h5 style="color: white; font-size: medium; text-shadow:0 -1px 1px rgba(0,0,0,0.5);"><img src="logo.jpg" alt="" style="height: 40px; width: 40px; padding: 0">
       BUTLER'S <span style="color: #FED201">PIZZA!</span>
     </h5>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
-          style="border: transparent; color: #FED201; font-size: medium">Contact
+          style="border: transparent; color: #FED201; font-size: 17px;text-shadow:0 -1px 1px rgba(0,0,0,0.5);font-weight:bold" >Contact
      <span><i class="fas fa-bars fa-1x"></i></span>
   </button>
 
@@ -47,7 +47,7 @@
       </li>
       <li class="nav-item">
         <!-- Telegram bot here i assume? -->
-        <a class="nav-link" href="#" style="color: white; float: right">Chat with customer care</a>
+        <a class="nav-link" href="#" style="color: white; float: right;">Chat with customer care</a>
       </li>
     </ul>
   </div>
@@ -114,16 +114,16 @@
                 <i class="fa fa-money-bill-alt"
                    style="font-size: 48px;color: #22BD57; filter: grayscale(100%);" id="InitialCash"></i>
                 <input type="radio" name="Cash_option" value="Cash" style="display: none" onclick="ChangeFilterCash()"
-                       >
+                >
               </label>
 
               <label>
                 <img src="snapscan.png" alt="" id="InitialSnap"
                      style="height: 65px; width: 130px; filter: grayscale(100%);">
                 <input type="radio" name="Snap_option" value="SnapScan" style="display: none"
-                       onclick="ChangeFilterSnap()" >
-
+                       onclick="ChangeFilterSnap()">
               </label>
+
               <br>
               <br>
               <div class="form-group">
@@ -152,12 +152,12 @@
 
   <!-- Initial payment popup -->
 
-  <!--
-  <div class="text-center">
-    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#InitialPaymentModal">Launch
-      Initial payment popup</a>
-  </div>
-  -->
+  <!-- Manual initial modal button
+    <div class="text-center">
+      <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#InitialPaymentModal">Launch
+        Initial payment popup</a>
+    </div>
+    -->
 
 
   <!-- Home page map -->
@@ -257,7 +257,7 @@
         <tr>
           <th scope="row">Total</th>
           <td></td>
-          <td>Rxxx.xx</td>
+          <td>Rxxxx.xx</td>
         </tr>
         <tr>
           <th scope="row" colspan="3">Payment:Type</th>
@@ -274,7 +274,7 @@
   <!-- Payment/Order  card -->
 
   <!-- Payment Modal/Popup -->
-  <div class="modal fade modal-lg" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="PaymentModalLongTitle"
+  <div class="modal fade fullscreen" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="PaymentModalLongTitle"
        aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
